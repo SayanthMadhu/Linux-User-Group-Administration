@@ -221,6 +221,7 @@ groups devuser1
 Explanation
 
 Displays all groups to which devuser1 belongs.
+
 OUTPUT:
 <img width="292" height="46" alt="image" src="https://github.com/user-attachments/assets/c23ef9bc-a8a2-4e2c-b34e-2bc563bc282f" />
 
@@ -230,33 +231,48 @@ chage -l devuser1
 Explanation
 
 Displays password aging information for devuser1.
+OUTPUT:
+<img width="606" height="142" alt="image" src="https://github.com/user-attachments/assets/9fc18235-c51e-4722-97f6-7fd835b85862" />
+
 
 Verify sudo privileges
 sudo -l -U devuser1
 Explanation
 
 Lists the commands that devuser1 is allowed to run using sudo.
-Example:
-
-User devuser1 may run the following commands:
-    (ALL : ALL) ALL
+OUTPUT :
+<img width="522" height="65" alt="image" src="https://github.com/user-attachments/assets/ddee4749-513f-49e9-8a3a-870e11444ca9" />
+ -id
 Verify custom home directory
+
 ls -ld /customhome/devuser2
 Explanation
 
 ls lists files/directories.
 -l shows detailed information.
 -d displays the directory itself instead of its contents.
-Example:
 
-drwx------ 2 devuser2 devuser2 4096 Jun 24 12:00 /customhome/devuser2
-🔹 Step 10: Unlock devuser2
+Output:
+<img width="607" height="62" alt="image" src="https://github.com/user-attachments/assets/1c17efdb-0830-4151-8793-ca6618f5b60e" />
+
+## 🔹 Step 10: Unlock devuser2
+
 Command
+
 sudo passwd -u devuser2
+
 Explanation
+
 -u unlocks the user account.
+
 The user can log in again.
-🔹 Step 11: Delete Both Users
+
+OUTPUT: 
+
+<img width="607" height="62" alt="image" src="https://github.com/user-attachments/assets/9a8eede3-29fa-4016-a1bc-ae8eebac3789" />
+
+## 🔹 Step 11: Delete Both Users
+
 Delete devuser1
 sudo userdel -r devuser1
 Delete devuser2
@@ -264,13 +280,20 @@ sudo userdel -r devuser2
 Explanation
 userdel removes a user account.
 -r also removes the user's home directory and mail spool.
+OUTPUT:
+<img width="572" height="102" alt="image" src="https://github.com/user-attachments/assets/76652c04-52ad-455e-8a50-c1713892f7cb" />
+
 🔹 Step 12: Delete the Group
-Command
+Command:-
+
 sudo groupdel engineers
-Explanation
-groupdel deletes an existing group.
-The group must not be the primary group of any existing user.
-📋 Commands Required for Submission (Run Before Cleanup)
+
+Explanation:
+
+. groupdel deletes an existing group.
+. The group must not be the primary group of any existing user.
+. Commands Required for Submission (Run Before Cleanup)
+
 cat /etc/passwd | grep devuser
 
 groups devuser1
@@ -286,3 +309,7 @@ groups devuser1 → devuser1 belongs to the engineers and sudo (or wheel) groups
 chage -l devuser1 → Password aging policy is configured correctly.
 sudo -l -U devuser1 → devuser1 has administrative privileges.
 ls -ld /customhome/devuser2 → The custom home directory for devuser2 exists.
+
+OUTPUT: 
+<img width="582" height="207" alt="image" src="https://github.com/user-attachments/assets/c4c650fc-60fe-4f45-b93d-8683dd79fc3c" />
+
